@@ -21,7 +21,6 @@ class SignInViewController: UIViewController {
     
     
     @IBAction func signInWithGitHub(_ sender: UIButton) {
-        
         let url = gitHubManager.appManager.url
         let safariViewController = GitHubAuthenicationViewController(url: url)
         safariViewController.modalPresentationStyle = .currentContext

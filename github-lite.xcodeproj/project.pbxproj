@@ -12,6 +12,7 @@
 		9EC27A2F1FBDD9E400BFAFEE /* GitHubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC27A2E1FBDD9E400BFAFEE /* GitHubManager.swift */; };
 		9EC27A311FBDD9FA00BFAFEE /* GitHubAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC27A301FBDD9FA00BFAFEE /* GitHubAppManager.swift */; };
 		9EC27A331FBDDC5E00BFAFEE /* GitHubAuthenicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC27A321FBDDC5E00BFAFEE /* GitHubAuthenicationViewController.swift */; };
+		9EC27A361FBDFBF300BFAFEE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC27A351FBDFBF200BFAFEE /* API.swift */; };
 		9EC874BE1FBDD455007C4D13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC874BD1FBDD455007C4D13 /* AppDelegate.swift */; };
 		9EC874C31FBDD455007C4D13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC874C11FBDD455007C4D13 /* Main.storyboard */; };
 		9EC874C51FBDD455007C4D13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EC874C41FBDD455007C4D13 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		9EC27A2E1FBDD9E400BFAFEE /* GitHubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubManager.swift; sourceTree = "<group>"; };
 		9EC27A301FBDD9FA00BFAFEE /* GitHubAppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAppManager.swift; sourceTree = "<group>"; };
 		9EC27A321FBDDC5E00BFAFEE /* GitHubAuthenicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAuthenicationViewController.swift; sourceTree = "<group>"; };
+		9EC27A351FBDFBF200BFAFEE /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		9EC874BA1FBDD455007C4D13 /* github-lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "github-lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EC874BD1FBDD455007C4D13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EC874C21FBDD455007C4D13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		9EC874BC1FBDD455007C4D13 /* github-lite */ = {
 			isa = PBXGroup;
 			children = (
+				9EC27A351FBDFBF200BFAFEE /* API.swift */,
 				9EC27A2D1FBDD9CE00BFAFEE /* GitHubManager */,
 				9EC874BD1FBDD455007C4D13 /* AppDelegate.swift */,
 				9EC874C11FBDD455007C4D13 /* Main.storyboard */,
@@ -126,6 +129,7 @@
 				9EC874B81FBDD455007C4D13 /* Resources */,
 				C5198E1498087C4B9EB06186 /* [CP] Embed Pods Frameworks */,
 				F8D31C85E6C5D8F10993D8E8 /* [CP] Copy Pods Resources */,
+				9EC27A341FBDF91800BFAFEE /* Apollo */,
 			);
 			buildRules = (
 			);
@@ -202,6 +206,20 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9EC27A341FBDF91800BFAFEE /* Apollo */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Apollo;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-codegen.sh generate $(find . -name '*.graphql') --schema schema.json --output API.swift";
+		};
 		C5198E1498087C4B9EB06186 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -209,13 +227,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-github-lite/Pods-github-lite-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -248,6 +264,7 @@
 				9EC27A331FBDDC5E00BFAFEE /* GitHubAuthenicationViewController.swift in Sources */,
 				9EC27A2F1FBDD9E400BFAFEE /* GitHubManager.swift in Sources */,
 				9EC874BE1FBDD455007C4D13 /* AppDelegate.swift in Sources */,
+				9EC27A361FBDFBF300BFAFEE /* API.swift in Sources */,
 				9EC27A2B1FBDD61700BFAFEE /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
