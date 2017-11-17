@@ -1,11 +1,6 @@
-# Git Repository Template
+# GitHub Lite iOS Application with GitHub GraphQL API V4
 Project repository template to set up all public projects at [Nimbl3](https://nimbl3.com)
 
-## Usage
-
-Clone the repository
-
-`git clone git@github.com:nimbl3/git-template.git`
 
 ## License
 
@@ -15,6 +10,7 @@ and may be redistributed under the terms specified in the [LICENSE] file.
 [LICENSE]: /LICENSE
 
 ## About
+
 
 ![Nimbl3](https://dtvm7z6brak4y.cloudfront.net/logo/logo-repo-readme.jpg)
 
