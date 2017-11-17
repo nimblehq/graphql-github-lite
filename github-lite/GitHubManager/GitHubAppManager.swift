@@ -15,10 +15,16 @@ class GitHubAppManager: NSObject {
     private var gitHubRedirectedURLString: String { return "" }
     private var scope: String { return "" }
     private var state: String { return "" }
+    var personalToken: String {
+        set { UserDefaults.standard.set(newValue, forKey: "personalToken") }
+        get { return UserDefaults.standard.object(forKey: "personalToken") as? String ?? "" }
+    }
     
     private var urlString: String { return "https://github.com/login/oauth/authorize?&client_id=\(gitHubClientID)&redirect_uri=\(gitHubRedirectedURLString)&scope=\(scope)&state=\(state)&allow_signup=true" }
 
-    var url: URL { return URL(string: urlString)! }
+    var url: URL {
+        return URL(string: urlString)! }
+    
     
 }
         

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4E7E9ACE35680CE1BAFDEEC5 /* Pods_github_lite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4177C6F54DABFBB81CC4E387 /* Pods_github_lite.framework */; };
+		9E8C1BAA1FBE8EC500B11256 /* URL+QueryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8C1BA91FBE8EC500B11256 /* URL+QueryParams.swift */; };
+		9E8C1BAC1FBE907E00B11256 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8C1BAB1FBE907E00B11256 /* UserProfileViewController.swift */; };
 		9EC27A2B1FBDD61700BFAFEE /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC27A2A1FBDD61700BFAFEE /* SignInViewController.swift */; };
 		9EC27A2F1FBDD9E400BFAFEE /* GitHubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC27A2E1FBDD9E400BFAFEE /* GitHubManager.swift */; };
 		9EC27A311FBDD9FA00BFAFEE /* GitHubAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC27A301FBDD9FA00BFAFEE /* GitHubAppManager.swift */; };
@@ -17,11 +19,17 @@
 		9EC874C31FBDD455007C4D13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC874C11FBDD455007C4D13 /* Main.storyboard */; };
 		9EC874C51FBDD455007C4D13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EC874C41FBDD455007C4D13 /* Assets.xcassets */; };
 		9EC874C81FBDD455007C4D13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC874C61FBDD455007C4D13 /* LaunchScreen.storyboard */; };
+		9EE501621FBEB0F30065B254 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE501611FBEB0F30065B254 /* User.swift */; };
+		9EE501641FBEB2F00065B254 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 9EE501631FBEB2EF0065B254 /* schema.json */; };
+		9EE501681FBEB3DA0065B254 /* UserProfileViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9EE501671FBEB3DA0065B254 /* UserProfileViewController.graphql */; };
+		9EE5016B1FBEB4700065B254 /* ApolloManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE5016A1FBEB4700065B254 /* ApolloManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2597E2BF13DFA4B28733E91F /* Pods-github-lite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-github-lite.release.xcconfig"; path = "Pods/Target Support Files/Pods-github-lite/Pods-github-lite.release.xcconfig"; sourceTree = "<group>"; };
 		4177C6F54DABFBB81CC4E387 /* Pods_github_lite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_github_lite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E8C1BA91FBE8EC500B11256 /* URL+QueryParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+QueryParams.swift"; sourceTree = "<group>"; };
+		9E8C1BAB1FBE907E00B11256 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		9EC27A2A1FBDD61700BFAFEE /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9EC27A2E1FBDD9E400BFAFEE /* GitHubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubManager.swift; sourceTree = "<group>"; };
 		9EC27A301FBDD9FA00BFAFEE /* GitHubAppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAppManager.swift; sourceTree = "<group>"; };
@@ -33,6 +41,10 @@
 		9EC874C41FBDD455007C4D13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EC874C71FBDD455007C4D13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9EC874C91FBDD455007C4D13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EE501611FBEB0F30065B254 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9EE501631FBEB2EF0065B254 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = SOURCE_ROOT; };
+		9EE501671FBEB3DA0065B254 /* UserProfileViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = UserProfileViewController.graphql; sourceTree = "<group>"; };
+		9EE5016A1FBEB4700065B254 /* ApolloManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloManager.swift; sourceTree = "<group>"; };
 		B35869D1FA1A019769EBD164 /* Pods-github-lite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-github-lite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-github-lite/Pods-github-lite.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,11 +69,20 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9E8C1BA81FBE8EA500B11256 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9E8C1BA91FBE8EC500B11256 /* URL+QueryParams.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9EC27A2C1FBDD62000BFAFEE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				9EC27A2A1FBDD61700BFAFEE /* SignInViewController.swift */,
 				9EC27A321FBDDC5E00BFAFEE /* GitHubAuthenicationViewController.swift */,
+				9EE501661FBEB3C10065B254 /* UserProfileViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -96,6 +117,10 @@
 		9EC874BC1FBDD455007C4D13 /* github-lite */ = {
 			isa = PBXGroup;
 			children = (
+				9EE501691FBEB4630065B254 /* Apollo */,
+				9EE501601FBEB0E20065B254 /* Models */,
+				9EC27A2C1FBDD62000BFAFEE /* ViewControllers */,
+				9E8C1BA81FBE8EA500B11256 /* Extensions */,
 				9EC27A351FBDFBF200BFAFEE /* API.swift */,
 				9EC27A2D1FBDD9CE00BFAFEE /* GitHubManager */,
 				9EC874BD1FBDD455007C4D13 /* AppDelegate.swift */,
@@ -103,9 +128,34 @@
 				9EC874C41FBDD455007C4D13 /* Assets.xcassets */,
 				9EC874C61FBDD455007C4D13 /* LaunchScreen.storyboard */,
 				9EC874C91FBDD455007C4D13 /* Info.plist */,
-				9EC27A2C1FBDD62000BFAFEE /* ViewControllers */,
+				9EE501631FBEB2EF0065B254 /* schema.json */,
 			);
 			path = "github-lite";
+			sourceTree = "<group>";
+		};
+		9EE501601FBEB0E20065B254 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9EE501611FBEB0F30065B254 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9EE501661FBEB3C10065B254 /* UserProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9E8C1BAB1FBE907E00B11256 /* UserProfileViewController.swift */,
+				9EE501671FBEB3DA0065B254 /* UserProfileViewController.graphql */,
+			);
+			path = UserProfileViewController;
+			sourceTree = "<group>";
+		};
+		9EE501691FBEB4630065B254 /* Apollo */ = {
+			isa = PBXGroup;
+			children = (
+				9EE5016A1FBEB4700065B254 /* ApolloManager.swift */,
+			);
+			path = Apollo;
 			sourceTree = "<group>";
 		};
 		CC1D8A9BFDE36ED5D3B0CAC7 /* Frameworks */ = {
@@ -180,7 +230,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EC874C81FBDD455007C4D13 /* LaunchScreen.storyboard in Resources */,
+				9EE501641FBEB2F00065B254 /* schema.json in Resources */,
 				9EC874C51FBDD455007C4D13 /* Assets.xcassets in Resources */,
+				9EE501681FBEB3DA0065B254 /* UserProfileViewController.graphql in Resources */,
 				9EC874C31FBDD455007C4D13 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,11 +279,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-github-lite/Pods-github-lite-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -261,10 +321,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EC27A311FBDD9FA00BFAFEE /* GitHubAppManager.swift in Sources */,
+				9E8C1BAC1FBE907E00B11256 /* UserProfileViewController.swift in Sources */,
 				9EC27A331FBDDC5E00BFAFEE /* GitHubAuthenicationViewController.swift in Sources */,
+				9E8C1BAA1FBE8EC500B11256 /* URL+QueryParams.swift in Sources */,
 				9EC27A2F1FBDD9E400BFAFEE /* GitHubManager.swift in Sources */,
 				9EC874BE1FBDD455007C4D13 /* AppDelegate.swift in Sources */,
 				9EC27A361FBDFBF300BFAFEE /* API.swift in Sources */,
+				9EE501621FBEB0F30065B254 /* User.swift in Sources */,
+				9EE5016B1FBEB4700065B254 /* ApolloManager.swift in Sources */,
 				9EC27A2B1FBDD61700BFAFEE /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
