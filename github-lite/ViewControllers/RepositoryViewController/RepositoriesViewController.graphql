@@ -1,0 +1,11 @@
+query GetCurrentUserRepositories {
+    viewer{
+        repositories(first:20) {
+            edges {
+                node {
+                    name
+                }
+            }
+        }
+    }
+}

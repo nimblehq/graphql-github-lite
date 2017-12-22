@@ -11,15 +11,26 @@ import Apollo
 
 class ApolloManager: NSObject {
 
-    let apolloClient: ApolloClient!
+    var apolloClient: ApolloClient!
     
     static var shared = ApolloManager()
-    var configuration = URLSessionConfiguration.default
+    let configuration = URLSessionConfiguration.default
 
     override init() {
-        let endPoint = URL(string: "https://api.github.com/graphql")!
-        self.configuration.httpAdditionalHeaders = ["Authorization": "bearer \(GitHubManager.shared.appManager.personalToken)"]
+        super.init()
+        self.observeDidReceiveNotification()
+        let token = GitHubManager.shared.appManager.personalToken
+        let endPoint = URL(string: "http://api.github.com/graphql")!
+        self.configuration.httpAdditionalHeaders = ["Authorization": "bearer \(token)"]
         self.apolloClient = ApolloClient(networkTransport: HTTPNetworkTransport(url: endPoint, configuration: configuration))
     }
     
+    func observeDidReceiveNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(setNewToken(_:)), name: Notification.Name(rawValue: "didReceiveGitHubToken"), object: nil)
+    }
+    
+    @objc func setNewToken(_ notification: Notification) {
+        guard let token = notification.userInfo!["token"] as? String else { return }
+        self.configuration.httpAdditionalHeaders = ["Authorization": "bearer \(token)"];
+    }
 }

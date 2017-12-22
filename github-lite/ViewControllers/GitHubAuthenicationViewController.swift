@@ -13,24 +13,20 @@ import SwiftyJSON
 
 class GitHubAuthenicationViewController: UIViewController {
 
-    @IBOutlet weak var webView: WKWebView!
-    @IBOutlet weak var closeBarButtonItem: UIBarButtonItem!
+    @IBOutlet private weak var webView: WKWebView!
     
-    var appManager = GitHubManager.shared.appManager
+    private var appManager = GitHubManager.shared.appManager
+    
+    var didReceiveToken: ((String)->())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        closeBarButtonItem.tintColor = .red
         webView.load(URLRequest(url: GitHubManager.shared.appManager.url))
         webView.navigationDelegate = self
         
     }
     
-    @IBAction func closeBarButtonItem(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func getUserToken(from code: String, completion: ((String)->())? = nil) {
+    private func getUserToken(from code: String, completion: ((String)->())? = nil) {
         
         let params: Parameters = [
             "client_id": appManager.gitHubClientID,
@@ -45,13 +41,14 @@ class GitHubAuthenicationViewController: UIViewController {
                 let json = JSON(responseValue)
                 let token = json["access_token"].stringValue
                 GitHubManager.shared.appManager.personalToken = token
+                
                 self?.dismiss(animated: true, completion: nil)
+                self?.didReceiveToken?(token)
+                
                 completion?(token)
             }
         }
-
     }
-
 }
 
 extension GitHubAuthenicationViewController: WKNavigationDelegate {
