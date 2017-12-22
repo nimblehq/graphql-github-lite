@@ -20,7 +20,7 @@ class ApolloManager: NSObject {
         super.init()
         self.observeDidReceiveNotification()
         let token = GitHubManager.shared.appManager.personalToken
-        let endPoint = URL(string: "http://api.github.com/graphql")!
+        let endPoint = URL(string: "https://api.github.com/graphql")!
         self.configuration.httpAdditionalHeaders = ["Authorization": "bearer \(token)"]
         self.apolloClient = ApolloClient(networkTransport: HTTPNetworkTransport(url: endPoint, configuration: configuration))
     }

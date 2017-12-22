@@ -25,19 +25,21 @@ class UserProfileViewController: UIViewController {
             showLoginModal()
         } else {
             getUserData()
-
         }
     }
     
     @IBAction func logOut(_ sender: UIBarButtonItem) {
-        GitHubManager.shared.appManager.personalToken = ""
         clear()
+        GitHubManager.shared.appManager.logOut()
     }
     
     private func setUserInfoToViewController(user: CurrentUserQuery.Data.Viewer) {
         self.fullNameLabel.text = user.name
         self.usernameLabel.text = user.login
         self.profileImageView.af_setImage(withURL: URL(string: user.avatarUrl)!)
+        self.profileImageView.af_setImage(withURL: URL(string: user.avatarUrl)!) { _ in
+            SVProgressHUD.dismiss()
+        }
     }
 
 
@@ -52,7 +54,6 @@ class UserProfileViewController: UIViewController {
             
             if let result = result, let data = result.data {
                 self?.setUserInfoToViewController(user: data.viewer)
-                SVProgressHUD.dismiss()
             }
         }
     }
@@ -64,7 +65,6 @@ class UserProfileViewController: UIViewController {
     }
     
     @objc func didReceiveNotificationHandler(_ notification: Notification) {
-        // MARK: From notification
         
         guard let token = notification.userInfo!["token"] as? String else { return }
         
@@ -72,7 +72,7 @@ class UserProfileViewController: UIViewController {
             showLoginModal()
         }
     }
-    
+
     func showLoginModal() {
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)

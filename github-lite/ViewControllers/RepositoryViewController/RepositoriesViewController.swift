@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class RepositoriesViewController: UIViewController {
     
@@ -20,9 +21,9 @@ class RepositoriesViewController: UIViewController {
     }
     
     func getCurrentUserRepository() {
+        SVProgressHUD.show(withStatus: "Getting Repositories")
         ApolloManager.shared.apolloClient.fetch(query: GetCurrentUserRepositoriesQuery()) { [weak self] (result, error) in
-            self?.tableView.reloadData()
-
+            SVProgressHUD.dismiss()
             if let repositories = result?.data?.viewer.repositories.edges {
                 self?.repositories = repositories as! [GetCurrentUserRepositoriesQuery.Data.Viewer.Repository.Edge]
                 self?.tableView.reloadData()
@@ -32,16 +33,14 @@ class RepositoriesViewController: UIViewController {
 }
 
 extension RepositoriesViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return repositories.count
-    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
+        cell.textLabel?.text = repositories[indexPath.item].node?.name
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return repositories.count
     }
     
 }

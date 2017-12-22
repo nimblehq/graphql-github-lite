@@ -18,6 +18,7 @@
 		9EC874C31FBDD455007C4D13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC874C11FBDD455007C4D13 /* Main.storyboard */; };
 		9EC874C51FBDD455007C4D13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EC874C41FBDD455007C4D13 /* Assets.xcassets */; };
 		9EC874C81FBDD455007C4D13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC874C61FBDD455007C4D13 /* LaunchScreen.storyboard */; };
+		9ED217BD1FECBF5D00FCD849 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED217BC1FECBF5D00FCD849 /* ViewController.swift */; };
 		9EE501641FBEB2F00065B254 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 9EE501631FBEB2EF0065B254 /* schema.json */; };
 		9EE501681FBEB3DA0065B254 /* UserProfileViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9EE501671FBEB3DA0065B254 /* UserProfileViewController.graphql */; };
 		9EE5016B1FBEB4700065B254 /* ApolloManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE5016A1FBEB4700065B254 /* ApolloManager.swift */; };
@@ -41,6 +42,7 @@
 		9EC874C41FBDD455007C4D13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EC874C71FBDD455007C4D13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9EC874C91FBDD455007C4D13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9ED217BC1FECBF5D00FCD849 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9EE501631FBEB2EF0065B254 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = SOURCE_ROOT; };
 		9EE501671FBEB3DA0065B254 /* UserProfileViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = UserProfileViewController.graphql; sourceTree = "<group>"; };
 		9EE5016A1FBEB4700065B254 /* ApolloManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloManager.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				9EE501661FBEB3C10065B254 /* UserProfileViewController */,
 				9EE5016C1FBEC36D0065B254 /* MainTabbarViewController.swift */,
 				9EE5017E1FBEE4060065B254 /* RepositoryViewController */,
+				9ED217BC1FECBF5D00FCD849 /* ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				9EE5016D1FBEC36D0065B254 /* MainTabbarViewController.swift in Sources */,
 				9E8C1BAC1FBE907E00B11256 /* UserProfileViewController.swift in Sources */,
 				9EC27A331FBDDC5E00BFAFEE /* GitHubAuthenicationViewController.swift in Sources */,
+				9ED217BD1FECBF5D00FCD849 /* ViewController.swift in Sources */,
 				9EE5016F1FBEC6FC0065B254 /* RepositoriesViewController.swift in Sources */,
 				9E8C1BAA1FBE8EC500B11256 /* URL+QueryParams.swift in Sources */,
 				9EC27A2F1FBDD9E400BFAFEE /* GitHubManager.swift in Sources */,

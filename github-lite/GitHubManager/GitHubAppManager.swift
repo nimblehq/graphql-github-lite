@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 
 class GitHubAppManager: NSObject {
 
@@ -24,6 +25,11 @@ class GitHubAppManager: NSObject {
             print("get login name", loginName)
             return loginName
         }
+    }
+    
+    func logOut() {
+        personalToken = ""
+        URLCache.shared.removeAllCachedResponses()
     }
     var personalToken: String {
         set {
@@ -44,8 +50,6 @@ class GitHubAppManager: NSObject {
         return "https://github.com/login/oauth/authorize?&client_id=\(gitHubClientID)&redirect_uri=\(gitHubRedirectedURLString)&scope=\(scope)&state=\(state)&allow_signup=true" }
 
     var url: URL { return URL(string: urlString)! }
-    
-    
 }
         
 

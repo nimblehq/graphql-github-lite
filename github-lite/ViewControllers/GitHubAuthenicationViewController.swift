@@ -21,9 +21,12 @@ class GitHubAuthenicationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.load(URLRequest(url: GitHubManager.shared.appManager.url))
-        webView.navigationDelegate = self
         
+        clearCookie { [weak self] in
+            var request = URLRequest(url: GitHubManager.shared.appManager.url)
+            self?.webView.load(request)
+            self?.webView.navigationDelegate = self
+        }
     }
     
     private func getUserToken(from code: String, completion: ((String)->())? = nil) {
@@ -44,8 +47,17 @@ class GitHubAuthenicationViewController: UIViewController {
                 
                 self?.dismiss(animated: true, completion: nil)
                 self?.didReceiveToken?(token)
-                
                 completion?(token)
+            }
+        }
+    }
+    
+    func clearCookie(com: (() -> Void)? = nil) {
+        let dataSource = WKWebsiteDataStore.default()
+        let dataTypes = WKWebsiteDataStore.allWebsiteDataTypes()
+        dataSource.fetchDataRecords(ofTypes: dataTypes) { (websiteDataRecord) in
+            dataSource.removeData(ofTypes: dataTypes, for: websiteDataRecord) {
+                com?()
             }
         }
     }
@@ -56,6 +68,7 @@ extension GitHubAuthenicationViewController: WKNavigationDelegate {
         if let url = navigationAction.request.url, url.scheme == "github-lite" {
             if let code = url["code"] {
                 getUserToken(from: code)
+
             }
         }
         decisionHandler(.allow)
