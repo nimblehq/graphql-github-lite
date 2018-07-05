@@ -1,6 +1,4 @@
 # GitHub Lite iOS Application with GitHub GraphQL API V4
-Project repository template to set up all public projects at [Nimbl3](https://nimbl3.com)
-
 
 ## License
 
